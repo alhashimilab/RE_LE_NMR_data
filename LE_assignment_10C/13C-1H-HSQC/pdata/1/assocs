@@ -1,0 +1,11 @@
+##TITLE= Parameter file, TopSpin 4.0.6
+##JCAMPDX= 5.0
+##DATATYPE= Parameter Values
+##NPOINTS= 3	$$ modification sequence number
+##ORIGIN= Bruker BioSpin GmbH
+##OWNER= AlHashimi
+$$ 2023-09-01 15:19:22.545 -0700  simmma@Gusevas-MBP.lan
+$$ /Users/simmma/nmr_sparky_data/hairpin/LE_26_10C_22082023/5/pdata/1/assocs
+$$ process /opt/topspin4.0.6/prog/mod/dataserver
+##$MULTDISP= </Users/simmma/nmr_sparky_data/hairpin/RE_22_10C_18082023/5/pdata/1|/Users/simmma/nmr_sparky_data/hairpin/RE_22_01082023/10/pdata/1>
+##END=

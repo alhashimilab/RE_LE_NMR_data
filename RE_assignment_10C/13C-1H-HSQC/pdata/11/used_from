@@ -1,0 +1,16 @@
+##TITLE= Parameter file, TopSpin 3.6.2
+##JCAMPDX= 5.0
+##DATATYPE= Parameter Values
+##NPOINTS= 1	$$ modification sequence number
+##ORIGIN= Bruker BioSpin GmbH
+##OWNER= AlHashimi
+$$ 2023-08-18 12:39:39.261 -0400  AlHashimi@ps03drx600
+$$ /opt/nmrdata/halhashimi/sima/RE_22_10C_18082023/5/pdata/11/used_from
+$$ process /opt/topspin3.6.2/prog/mod/proc1d
+##$CUREXP= <ser>
+##$DATPATH= </opt/nmrdata/halhashimi/sima>
+##$EXPNO= 5
+##$NAME= <RE_22_10C_18082023>
+##$PROCNO= 1
+##$PROCNO2= 1
+##END=

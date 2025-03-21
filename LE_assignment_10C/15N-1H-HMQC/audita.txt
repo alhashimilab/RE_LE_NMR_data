@@ -1,0 +1,18 @@
+##TITLE= Audit trail, TopSpin 3.6.2
+##JCAMPDX= 5.01
+##ORIGIN= Bruker BioSpin GmbH
+##OWNER= AlHashimi
+$$ /opt/nmrdata/halhashimi/sima/LE_26_10C_22082023/6/audita.txt
+##AUDIT TRAIL=  $$ (NUMBER, WHEN, WHO, WHERE, PROCESS, VERSION, WHAT)
+(   1,<2023-08-23 13:54:34.637 -0400>,<AlHashimi>,<ps03drx600>,<go4>,<TopSpin 3.6.2>,
+      <created by zg
+	started at 2023-08-23 05:34:11.929 -0400,
+	POWCHK enabled, PULCHK disabled,
+       configuration hash MD5:
+       E4 A2 77 A3 E9 8A DB DB 3D 3A 69 22 B3 2C 89 09
+       data hash MD5: 2K * 128
+       DE D5 17 B2 06 BB DE 6E ED 72 C5 CA B0 56 9C 08>)
+##END=
+
+$$ hash MD5
+$$ CE 30 5D 44 4C 0C 12 02 5C 92 2D 01 99 11 B1 B1

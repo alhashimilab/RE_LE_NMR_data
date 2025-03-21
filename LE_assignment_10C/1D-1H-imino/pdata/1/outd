@@ -1,0 +1,16 @@
+##TITLE= Parameter file, TopSpin 3.6.2
+##JCAMPDX= 5.0
+##DATATYPE= Parameter Values
+##NPOINTS= 1	$$ modification sequence number
+##ORIGIN= Bruker BioSpin GmbH
+##OWNER= AlHashimi
+$$ 2023-08-22 14:11:21.973 -0400  AlHashimi@ps03drx600
+$$ /opt/nmrdata/halhashimi/sima/LE_26_10C_22082023/3/pdata/1/outd
+$$ process /opt/topspin3.6.2/prog/mod/edparproc
+##$CURPLOT= <HP LaserJet 1200 Series PCL 5>
+##$CURPRIN= <$HP LaserJet 1200 Series PCL 5>
+##$DFORMAT= <normdp>
+##$LAYOUT= <+/2D_inv.xwp>
+##$LFORMAT= <normlp>
+##$PFORMAT= <normpl>
+##END=

@@ -1,0 +1,329 @@
+# 1 "/opt/topspin3.6.2/exp/stan/nmr/lists/pp/user/1D_1H_imino_SOFAST"
+; 20220602 - 1D 1H imino SOFAST, using automatic shape pulse setup
+; sfhmqcf3gpph_autosetB_1H.OR         Was: sfhmqcf3gpph_autosetB.go      Was: sfhmqcf3gpph_autoset.go
+; TEMPORARILY REPLACED 13C 180 shaped pulse by hard 180 08Nov2017
+;
+; Now adding in Brutscher-style automatic shape pulse setup
+;avance-version (13/02/28)
+;SOFAST HMQC
+;2D H-1/X correlation via heteronuclear zero and double quantum
+;   coherence
+;phase sensitive
+;with decoupling during acquisition
+;
+;P.Schanda and B. Brutscher, J. Am. Chem. Soc. 127, 8014 (2005)
+;
+;$CLASS=HighRes
+;$DIM=2D
+;$TYPE=
+;$SUBTYPE=
+;$COMMENT=
+ 
+; optional composite pulse decoupling on 13C and 15N channels
+
+prosol relations=<triple>
+
+# 1 "/opt/topspin3.6.2/exp/stan/nmr/lists/pp/Avance.incl" 1
+;Avance3.incl
+;   for AV III
+;
+;avance-version (13/06/17)
+;
+;$CLASS=HighRes Incl
+;$COMMENT=
+# 169 "/opt/topspin3.6.2/exp/stan/nmr/lists/pp/Avance.incl"
+;$Id: Avance3.incl,v 1.10.2.2 2013/08/30 09:43:33 ber Exp $
+# 25 "/opt/topspin3.6.2/exp/stan/nmr/lists/pp/user/1D_1H_imino_SOFAST" 2
+
+# 1 "/opt/topspin3.6.2/exp/stan/nmr/lists/pp/Grad.incl" 1
+;Grad2.incl  -  include file for Gradient Spectroscopy
+;   for TCU3
+;
+;avance-version (07/01/17)
+;
+;$CLASS=HighRes Incl
+;$COMMENT=
+
+# 27 "/opt/topspin3.6.2/exp/stan/nmr/lists/pp/Grad.incl"
+define list<gradient> EA=<EA>
+
+
+# 31 "/opt/topspin3.6.2/exp/stan/nmr/lists/pp/Grad.incl"
+;$Id: Grad2.incl,v 1.14 2012/01/31 17:49:21 ber Exp $
+# 26 "/opt/topspin3.6.2/exp/stan/nmr/lists/pp/user/1D_1H_imino_SOFAST" 2
+
+# 1 "/opt/topspin3.6.2/exp/stan/nmr/lists/pp/Delay.incl" 1
+;Delay.incl  -  include file for commonly used delays
+;
+;version (13/08/07)
+;
+;$CLASS=HighRes Incl
+;$COMMENT=
+
+# 9 "/opt/topspin3.6.2/exp/stan/nmr/lists/pp/Delay.incl"
+;general delays
+
+define delay DELTA
+define delay DELTA1
+define delay DELTA2
+define delay DELTA3
+define delay DELTA4
+define delay DELTA5
+define delay DELTA6
+define delay DELTA7
+define delay DELTA8
+define delay DELTA9
+define delay DELTA10
+define delay DELTA11
+define delay DELTA12
+define delay DELTA13
+define delay DELTA14
+define delay DELTA15
+define delay DELTA16
+
+define delay TAU
+define delay TAU1
+define delay TAU2
+define delay TAU3
+define delay TAU4
+define delay TAU5
+define delay TAU6
+define delay TAU7
+define delay TAU8
+define delay TAU9
+# 40 "/opt/topspin3.6.2/exp/stan/nmr/lists/pp/Delay.incl"
+define delay INCR1
+define delay INCR2
+define delay INCR3
+define delay INCR4
+define delay INCR5
+define delay INCR6
+
+
+;delays for centering pulses
+# 50 "/opt/topspin3.6.2/exp/stan/nmr/lists/pp/Delay.incl"
+define delay CEN_HN1
+define delay CEN_HN2
+define delay CEN_HN3
+define delay CEN_HC1
+define delay CEN_HC2
+define delay CEN_HC3
+define delay CEN_HC4
+define delay CEN_HP1
+define delay CEN_HP2
+define delay CEN_CN1
+define delay CEN_CN2
+define delay CEN_CN3
+define delay CEN_CN4
+define delay CEN_CP1
+define delay CEN_CP2
+
+
+;loop counters
+# 69 "/opt/topspin3.6.2/exp/stan/nmr/lists/pp/Delay.incl"
+define loopcounter COUNTER
+define loopcounter SCALEF
+define loopcounter FACTOR1
+define loopcounter FACTOR2
+define loopcounter FACTOR3
+define loopcounter FACTOR4
+define loopcounter FACTOR5
+define loopcounter FACTOR6
+
+
+# 80 "/opt/topspin3.6.2/exp/stan/nmr/lists/pp/Delay.incl"
+;$Id: Delay.incl,v 1.14.2.1 2013/08/30 09:43:33 ber Exp $
+# 27 "/opt/topspin3.6.2/exp/stan/nmr/lists/pp/user/1D_1H_imino_SOFAST" 2
+
+
+"d11=30m"
+"d12=20u"
+"d21=1s/(cnst4*2)"
+# 33 "/opt/topspin3.6.2/exp/stan/nmr/lists/pp/user/1D_1H_imino_SOFAST"
+"in0=inf1"
+"d0=in0/2-p21*4/3.1415"
+
+; ==== Now adding in automatic shape pulse setup ====
+;
+; Note that the shape calibration values used here are specific to the pulses used (PC9 and Reburp), see below. 
+; Makes no difference which PC9 file is used (PC9_4_90.1000 or PC9_4_120.1000), as the two shapes are identical
+; 
+; CNST2 is BW in PPM for PC9
+; CNST22 is BW in PPM for Reburp 
+; CNST3 is PC9 flip angle in degrees.
+; CNST19 is 1H target offset in PPM. 
+; CNST39 is compensation factor for evolution during PC9 excitation pulse
+; CNST40 is an adjusted compensation factor for evolution during final J-delay
+;   Standard value for both is 0.529. Brutscher uses CNST39 = 0.55 during initial 1/2J then 0.52 during last 1/2J.) . 
+
+# 51 "/opt/topspin3.6.2/exp/stan/nmr/lists/pp/user/1D_1H_imino_SOFAST"
+; Calculations use params extracted from corresponding shape files:
+; PC9_4_120.1000 file:
+; ##$SHAPE_TOTROT= 1.200000E02
+; ##$SHAPE_TYPE= Excitation
+; ##$SHAPE_BWFAC= 7.512000E00              (SHAPE_BWFAC is analogous to Varian "pwbw".)
+; ##$SHAPE_INTEGFAC= 1.250034E-01
+
+; Reburp.1000 file:
+; ##$SHAPE_EXMODE= Refocussing
+; ##$SHAPE_TOTROT= 1.800000E02
+; ##$SHAPE_TYPE= Refocussing
+; ##$SHAPE_BWFAC= 5.814000E00
+; ##$SHAPE_INTEGFAC= 7.981016E-02
+
+# 66 "/opt/topspin3.6.2/exp/stan/nmr/lists/pp/user/1D_1H_imino_SOFAST"
+; ==== Calc for PC9 ==== 
+; Brutscher uses adjusted "BW_FAC": 
+"p50=7.2/(cnst2*bf1/1000000)" ; Note use of adjusted "BW_FAC" here, 7.2 instead of 7.512
+;STANDARD VERSION: "p50=7.512/(cnst2*bf1/1000000)"                             ; Standard PC9 "BW_FAC" is 7.512
+"spw50=plw1*(pow((cnst3/90.0)*(p1/p50)/0.125,2))"           ; PC9 "INTEG_FAC" is 0.1250034
+"spoff50=bf1*(cnst19/1000000)-o1"                           ; PC9 offset. n.b. Need to use "spoff" not "spoffs" in these calcs!
+;"spoal50=0.5"
+;"spnam50=Pc9_4_120.1000"
+
+; ==== Calc for ReBurp ==== 
+; Brutscher again uses an adjusted "BW_FAC": 
+"p51=4.875/(cnst22*bf1/1000000)" ; Note use of adjusted "BW_FAC" here, 4.875 instead of 5.814
+;STANDARD VERSION: "p51=5.814/(cnst2*bf1/1000000)"                             ; Standard PC9 "BW_FAC" is 5.814
+"spw51=plw1*(pow((p1*2/p51)/0.0798,2))"                     ; ReBurp "INTEG_FAC" is 0.0798
+"spoff51=bf1*(cnst19/1000000)-o1"                           ; ReBurp offset. (Same as used for PC9.)
+;"spoal51=0.5"
+;"spnam51=Reburp.1000"
+
+"DELTA1=d21-p16-d16-p50*cnst39" ; Set cnst39=0.529 (or Brutscher's 0.55)
+"DELTA2=p50*cnst40-de-4u"       ; Set cnst40=0.529 (or Brutscher's 0.52)
+; Original used cnst39 for both DELTAs:   "DELTA2=p50*cnst39-de-4u"
+# 88 "/opt/topspin3.6.2/exp/stan/nmr/lists/pp/user/1D_1H_imino_SOFAST"
+; DELETE "spoff23=bf1*(cnst19/1000000)-o1"
+; DELETE "spoff24=bf1*(cnst19/1000000)-o1"
+
+
+# 1 "mc_line 92 file /opt/topspin3.6.2/exp/stan/nmr/lists/pp/user/1D_1H_imino_SOFAST exp. def. part of mc cmd. before ze"
+; dimension 1D; AQ_mode 
+define delay MCWRK
+define delay MCREST
+"MCREST = d1 - 0.500000*d1"
+"MCWRK = 0.500000*d1"
+
+    dccorr
+# 92 "/opt/topspin3.6.2/exp/stan/nmr/lists/pp/user/1D_1H_imino_SOFAST"
+1 ze 
+# 1 "mc_line 92 file /opt/topspin3.6.2/exp/stan/nmr/lists/pp/user/1D_1H_imino_SOFAST exp. def. of mc cmd. after ze"
+# 93 "/opt/topspin3.6.2/exp/stan/nmr/lists/pp/user/1D_1H_imino_SOFAST"
+  d11
+# 1 "mc_line 94 file /opt/topspin3.6.2/exp/stan/nmr/lists/pp/user/1D_1H_imino_SOFAST exp. start label for mc cmd."
+2 MCWRK do:f2 do:f3
+  MCREST
+# 95 "/opt/topspin3.6.2/exp/stan/nmr/lists/pp/user/1D_1H_imino_SOFAST"
+  2u pl20:f2 pl0:f3
+  50u setnmr3|0 setnmr0|34|32|33 ctrlgrad 0
+# 98 "/opt/topspin3.6.2/exp/stan/nmr/lists/pp/user/1D_1H_imino_SOFAST"
+  p16:gp2
+  d16
+
+  (p50:sp50 ph1):f1
+  p16:gp1
+  d16 
+
+;#   ifdef 1
+;  (center (p51:sp51 ph2):f1 (p3*2.0 ph1):f2 (DELTA1 p21 ph3 d0 p21 ph4 DELTA1):f3 )
+;; ORIGINAL  (center (p51:sp51 ph2):f1 (p8:sp13 ph1):f2 (DELTA1 p21 ph3 d0 p21 ph4 DELTA1):f3 )
+;#   else
+;  (center (p51:sp51 ph2):f1 (DELTA1 p21 ph3 d0 p21 ph4 DELTA1):f3 )
+;#   endif 
+# 112 "/opt/topspin3.6.2/exp/stan/nmr/lists/pp/user/1D_1H_imino_SOFAST"
+  (p51:sp51 ph2):f1
+
+  DELTA2
+  p16:gp1
+  d16
+
+  2u pl12:f2 pl16:f3
+# 120 "/opt/topspin3.6.2/exp/stan/nmr/lists/pp/user/1D_1H_imino_SOFAST"
+  4u setnmr3^0 setnmr0^34^32^33 ctrlgrad 7
+  go=2 ph31 cpd2:f2 cpd3:f3 
+# 1 "mc_line 122 file /opt/topspin3.6.2/exp/stan/nmr/lists/pp/user/1D_1H_imino_SOFAST exp. mc cmd. in line"
+  MCWRK  do:f2 do:f3 wr #0
+# 124 "/opt/topspin3.6.2/exp/stan/nmr/lists/pp/user/1D_1H_imino_SOFAST"
+exit 
+  
+
+ph1=0 2 
+ph2=0 
+ph31=0 2
+
+# 132 "/opt/topspin3.6.2/exp/stan/nmr/lists/pp/user/1D_1H_imino_SOFAST"
+; ==== NEED TO UPDATE THE FOLLOWING DESCRIPTIONS.... ====
+;pl3 : f3 channel - power level for pulse (default)
+;pl16: f3 channel - power level for CPD/BB decoupling (low power)
+;sp13: f2 channel - shaped pulse 180 degree (adiabatic)
+;sp23: f1 channel - shaped pulse 120 degree 
+;                   (Pc9_4_120.1000)
+;sp24: f1 channel - shaped pulse 180 degree (Rsnob.1000)
+;p8 : f2 channel - 180 degree shaped pulse for inversion (adiabatic)
+;p16: homospoil/gradient pulse                       [1 msec]
+;p21: f3 channel -  90 degree high power pulse
+;p39: f1 channel - 120 degree shaped pulse for excitation
+;                      Pc9_4_120.1000 (120o)    (3.0ms at 600.13 MHz)
+;p40: f1 channel - 180 degree shaped pulse for refocussing
+;                      Rsnob.1000               (1.0ms at 600.13 MHz)
+;d0 : incremented delay (2D) = in0/2-p21*4/3.1415
+;d1 : relaxation delay
+;d11: delay for disk I/O                             [30 msec]
+;d12: delay for power switching                      [20 usec]
+;d16: delay for homospoil/gradient recovery
+;d21 : 1/(2J)NH
+;cnst2: PC9 Shape pulse BW in PPM.
+;cnst22: Reburp Shape pulse BW in PPM. 
+;cnst3: PC9 flip angle in degrees.
+;cnst4: J(NH)
+;cnst19: H(N) chemical shift (offset, in ppm)
+;cnst39: compensation of chemical shift evolution during p50 (PC9 pulse)
+;           Pc9_4_120.1000: 0.529
+;cnst40: compensation of chemical shift evolution during p51 (Reburp pulse)
+;           Reburp.1000: 0.529
+; Standard value is 0.529. Brutscher uses CNST39 = 0.55 during initial 1/2J then 0.52 during last 1/2J.) . 
+
+;spnam50: [Use Pc9_4_120.1000 or 90 deg version]
+;spnam51: [Use Reburp.1000]
+;spoal50: [Use 0.5]
+;spoal51: [Use 0.5]
+
+;inf1: 1/SW(N) = 2 * DW(N)
+;in0: 1/ SW(N) = 2 * DW(N)
+;nd0: 1
+;ns: 2 * n
+;ds: 16
+;aq: <= 50 msec
+;td1: number of experiments
+;FnMODE: States-TPPI, TPPI, States or QSEC
+;cpd3: decoupling according to sequence defined by cpdprg3: garp4.p62
+;pcpd3: f3 channel - 90 degree pulse for decoupling sequence
+;          use pulse of >= 350 usec
+# 181 "/opt/topspin3.6.2/exp/stan/nmr/lists/pp/user/1D_1H_imino_SOFAST"
+;use gradient ratio:	gp 1 : gp 2
+;			  11 :    7
+
+
+;for z-only gradients:
+;gpz1: 11%
+;gpz2:  7%
+# 189 "/opt/topspin3.6.2/exp/stan/nmr/lists/pp/user/1D_1H_imino_SOFAST"
+;use gradient files:   
+;gpnam1: SMSQ10.100
+;gpnam2: SMSQ10.100
+
+
+                                          ;preprocessor-flags-start
+;1: for C-13 and N-15 labeled samples start experiment with
+;             option -DLABEL_CN (eda: ZGOPTNS)
+                                          ;preprocessor-flags-end
+# 200 "/opt/topspin3.6.2/exp/stan/nmr/lists/pp/user/1D_1H_imino_SOFAST"
+;Processing
+
+;PHC0(F1): 90
+;PHC1(F1): -180
+;FCOR(F1): 1
+
+# 208 "/opt/topspin3.6.2/exp/stan/nmr/lists/pp/user/1D_1H_imino_SOFAST"
+;$Id: sfhmqcf3gpph,v 1.10.6.2 2013/03/08 15:13:06 ber Exp $

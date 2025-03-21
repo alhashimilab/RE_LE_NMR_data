@@ -1,0 +1,28 @@
+##TITLE= Audit trail, TopSpin 3.6.2
+##JCAMPDX= 5.01
+##ORIGIN= Bruker BioSpin GmbH
+##OWNER= AlHashimi
+$$ /opt/nmrdata/halhashimi/sima/LE_26_10C_22082023/3/pdata/1/auditp.txt
+##AUDIT TRAIL=  $$ (NUMBER, WHEN, WHO, WHERE, PROCESS, VERSION, WHAT)
+(   1,<2023-08-22 14:40:06.675 -0400>,<AlHashimi>,<ps03drx600>,<go4>,<TopSpin 3.6.2>,
+      <created by zg
+	started at 2023-08-22 14:38:43.195 -0400,
+	POWCHK enabled, PULCHK disabled,
+       configuration hash MD5:
+       E4 A2 77 A3 E9 8A DB DB 3D 3A 69 22 B3 2C 89 09
+       data hash MD5: 4K
+       65 01 38 DC DA 03 38 9B C1 CD 21 20 41 90 04 CD>)
+(   2,<2023-08-22 14:40:08.654 -0400>,<AlHashimi>,<ps03drx600>,<proc1d>,<TopSpin 3.6.2>,
+      <Start of raw data processing
+       efp BC_mod = 4 LB = 3 FT_mod = 6 PKNL = 1 PHC0 = -40.51809 PHC1 = 53.82662 SI = 32K 
+       data hash MD5: 32K
+       59 03 45 6B C6 6C 57 96 A7 88 0C 0A E7 FF A9 36>)
+$$ /Users/simmma/nmr_sparky_data/hairpin/LE_26_10C_22082023/3/pdata/1/auditp.txt
+(   3,<2024-12-10 23:01:31.213 -0500>,<simmma>,<Gusevas-MBP.lan>,<proc1d>,<TopSpin 4.0.6>,
+      <pk fgphup PHC0 = 1.38125 PHC1 = 0 
+       data hash MD5: 32K
+       2A 9F AA 69 B3 A8 9F C2 2C 57 BA 98 C5 8C 69 4E>)
+##END=
+
+$$ hash MD5
+$$ 93 CD 98 39 B1 96 47 8B FA 36 4E 4D C7 56 28 83

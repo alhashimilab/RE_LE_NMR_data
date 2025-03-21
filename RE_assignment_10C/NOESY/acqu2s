@@ -1,0 +1,23 @@
+##TITLE= Parameter file, TopSpin 3.6.2
+##JCAMPDX= 5.0
+##DATATYPE= Parameter Values
+##NPOINTS= 1026	$$ modification sequence number
+##ORIGIN= Bruker BioSpin GmbH
+##OWNER= AlHashimi
+$$ 2023-08-20 21:50:51.469 -0400  AlHashimi@ps03drx600
+$$ /opt/nmrdata/halhashimi/sima/RE_22_10C_18082023/7/acqu2s
+$$ process /opt/topspin3.6.2/prog/mod/go4
+##$ACQT0= 0
+##$BF1= 600.13
+##$FnMODE= 5
+##$NUC1= <1H>
+##$NusJSP= 0
+##$NusT2= 1
+##$NusTD= 1024
+##$O1= 2824.21177996639
+##$ProjAngle= 0
+##$SFO1= 600.13282421178
+##$SW= 21.9828204773343
+##$SW_h= 13192.6121372032
+##$TD= 1024
+##END=
